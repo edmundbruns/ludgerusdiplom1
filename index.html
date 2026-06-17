@@ -571,7 +571,11 @@ html, body{
 </style>
 </head>
 <body>
-<div id="login-page" class="page active"><div class="login-card"><div style="font-size:3rem;margin-bottom:.4rem">♟️</div><h2>SOL – Schach Ludgerusdiplom I</h2><p>Schachlehrgang · Selbstorganisiertes Lernen</p><input type="text" id="name-input" placeholder="Dein Vorname" maxlength="30" autocomplete="off"><button class="btn btn-primary" onclick="proceedFromLogin()">Los geht's</button><div class="teacher-tools" style="justify-content:center;margin-top:.7rem"><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="newStudentStart()">Neues Kind starten</button><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="openPrivacy()">Datenschutz</button></div><hr style="margin:1.2rem 0;border:none;border-top:1px solid #e5e7eb"><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="openTeacher()">Lehreransicht</button></div></div>
+<div id="login-page" class="page active"><div class="login-card"><div style="font-size:3rem;margin-bottom:.4rem">♟️</div><h2>SOL – Schach Ludgerusdiplom I</h2><p>Schachlehrgang · Selbstorganisiertes Lernen</p><input type="text" id="name-input" placeholder="Dein Vorname" maxlength="30" autocomplete="off"><p class="privacy-hint" style="font-size:0.78rem;color:#555;margin:4px 0 8px;line-height:1.4;">Hinweis: Für die Arbeit in der Schule reicht ein Vorname, Kürzel oder Lernname. Bitte keine sensiblen personenbezogenen Daten eintragen.</p><div style="margin-top:8px;">
+  <label for="learnerEmail" style="font-size:0.82rem;color:#444;display:block;margin-bottom:3px;">E-Mail <span style="font-weight:normal;color:#777;">(optional)</span></label>
+  <input type="email" id="learnerEmail" placeholder="E-Mail optional" style="width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;" autocomplete="email">
+  <p style="font-size:0.75rem;color:#777;margin:3px 0 0;line-height:1.35;">Die E-Mail-Adresse ist freiwillig. Im Unterricht genügt ein Vorname, Kürzel oder Lernname. Bitte keine sensiblen Daten eintragen.</p>
+</div><button class="btn btn-primary" onclick="proceedFromLogin()">Los geht's</button><div class="teacher-tools" style="justify-content:center;margin-top:.7rem"><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="newStudentStart()">Neues Kind starten</button><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="openPrivacy()">Datenschutz</button></div><hr style="margin:1.2rem 0;border:none;border-top:1px solid #e5e7eb"><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="openTeacher()">Lehreransicht</button></div></div>
 <div id="level-page" class="page"><h2 class="page-title">Hallo <span id="display-name"></span>. Wähle dein Lernpaket:</h2><div class="level-grid">
 <div class="level-card einsteiger" onclick="selectLevel('einsteiger')"><div class="icon">♙</div><h3>Niveau I</h3><p>Brett · Aufstellung · lange Figuren · kurze Figuren</p><div class="progress-bar"><div class="progress-fill" id="prog-einsteiger" style="width:0%"></div></div><div id="prog-text-einsteiger" style="font-size:.8rem;color:#64748b;margin-top:.35rem">0 / 4 Abschnitte</div></div>
 <div class="level-card fortgeschrittener" onclick="selectLevel('fortgeschrittener')"><div class="icon">♔</div><h3>Niveau II</h3><p>Schlagen · Schach · Matt · Patt</p><div class="progress-bar"><div class="progress-fill" id="prog-fortgeschrittener" style="width:0%"></div></div><div id="prog-text-fortgeschrittener" style="font-size:.8rem;color:#64748b;margin-top:.35rem">0 / 4 Abschnitte</div></div>
@@ -610,7 +614,12 @@ html, body{
   <div class="mt1"><button class="btn btn-primary" onclick="goBackFromPrivacy()">Zurück</button></div>
 </div>
 
-<div id="teacher-page" class="page"><h2 class="page-title">Lehreransicht</h2><div class="theory-box"><p><strong>Lokale Übersicht</strong> für dieses Gerät. Ergebnisse werden zusätzlich im Browser gespeichert.</p></div>
+<div id="teacher-page" class="page"><h2 class="page-title">Lehreransicht</h2><div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin:0 0 14px;font-size:0.83rem;color:#856404;">
+  ⚠ Bitte den Standard-PIN vor dem echten Einsatz ändern. Die lokale PIN schützt nur dieses Gerät und ersetzt keinen Datenschutz.
+</div>
+<div style="background:#e8f4f8;border:1px solid #b8d4f0;border-radius:6px;padding:10px 14px;margin:0 0 14px;font-size:0.83rem;color:#0c5460;">
+  ℹ Die Lehreransicht speichert Daten lokal in diesem Browser. Für echte Schülerdaten bitte schulische Datenschutzvorgaben beachten.
+</div><div class="theory-box"><p><strong>Lokale Übersicht</strong> für dieses Gerät. Ergebnisse werden zusätzlich im Browser gespeichert.</p></div>
 <div class="teacher-box">
   <h3>Zugang und Schutz</h3>
   <p style="font-size:.9rem;color:#64748b">Der Lehrerbereich ist lokal geschützt. Die Google-Sheets-URL bleibt unverändert gespeichert.</p>
@@ -628,6 +637,10 @@ html, body{
 
 <div id="teacher-content"></div><div class="theory-box" style="margin-top:1rem"><strong>Google Sheets Anbindung</strong><p style="font-size:.85rem;margin:.4rem 0 .6rem">Ergebnisse werden nach dem Gelingnachweis automatisch an dein Google Sheet übermittelt.</p><input id="sheetsUrlInput" type="url" placeholder="Apps Script Web-App URL" style="width:100%;padding:.5rem;border:1px solid #cbd5e1;border-radius:6px;font-size:.82rem;box-sizing:border-box"><button class="btn btn-sm btn-primary" style="margin-top:.5rem" onclick="saveSheetsUrlFn(document.getElementById('sheetsUrlInput').value)">URL speichern</button></div><div class="mt1"><button class="btn btn-sm" style="background:#eef2f7;color:#334155" onclick="goToLevelSelect()">Zurück</button><button class="btn btn-sm btn-primary" onclick="refreshTeacher()">Aktualisieren</button><button class="btn btn-sm" style="background:#047857;color:#fff" onclick="exportCSV()">CSV exportieren</button></div></div>
 <script>
+function getLearnerEmail(){
+  const el = document.getElementById('learnerEmail');
+  return el ? el.value.trim() : '';
+}
 const TEACHER_PW='Schach#Lehrer26';
 let currentName='',currentLevel='',currentSection=0,exerciseScores={};
 const levelNames={einsteiger:'Niveau I',fortgeschrittener:'Niveau II',experte:'Niveau III'};
@@ -1675,7 +1688,16 @@ function printQrPage(){
 
 function startTest(){if(!canStartGelingnachweis()) return; const qs=TESTS[currentLevel];document.getElementById('test-title').textContent='Gelingnachweis – '+levelNames[currentLevel];let html='<div class="test-progress-box"><div class="test-progress-line"><span id="test-progress-text">Frage 1 von '+qs.length+' · beantwortet: 0/'+qs.length+'</span><span>Gelingnachweis</span></div><div class="test-progress-bar"><div class="test-progress-fill" id="test-progress-fill"></div></div></div>';qs.forEach((q,idx)=>{html+=`<div class="test-q"><p><span class="q-number">${testQuestionNumber(currentLevel,idx)}</span>${q.q}</p><div class="choices">`;const order=shuffledOrder(q.choices.length,currentLevel+'|test|'+idx+'|'+q.q,q.correct);order.forEach(i=>html+=`<label class="choice"><input type="radio" name="t${idx}" value="${i}" onchange="updateTestProgress()"> ${q.choices[i]}</label>`);html+='</div></div>'});html+='<button class="btn btn-green" onclick="gradeTest()">Auswerten</button>';document.getElementById('test-questions').innerHTML=html;document.getElementById('test-result').style.display='none';showPage('test-page');setTimeout(()=>{window.scrollTo({top:0,behavior:'smooth'});updateTestProgress()},0)}
 function escHtml(s){return String(s).replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
-function gradeTest(){const qs=TESTS[currentLevel];let correct=0;const wrong=[];const perQArr=[];qs.forEach((q,idx)=>{const v=document.querySelector(`input[name="t${idx}"]:checked`);const chosen=v?Number(v.value):null;const _ok=chosen===q.correct;perQArr.push(_ok);if(_ok){correct++}else{wrong.push({nr:idx+1,qnr:testQuestionNumber(currentLevel,idx),frage:q.q,deine:chosen===null?'nicht beantwortet':q.choices[chosen],richtig:q.choices[q.correct]})}});const _cats=TEST_CATEGORIES[currentLevel]||[];let catHtml='';if(_cats.length){catHtml='<div class="cat-results"><h4>Ergebnis nach Themen</h4>';_cats.forEach(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;const pct2=Math.round(ok/tot*100);const col=pct2>=80?'#16a34a':pct2>=50?'#d97706':'#dc2626';catHtml+=`<div class="cat-row"><span>${cat.name}</span>`+`<span style="color:${col};font-weight:700">${ok}/${tot} (${pct2}%)</span></div>`});const weak=_cats.filter(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;return Math.round(ok/tot*100)<80}).map(cat=>cat.name);if(weak.length){catHtml+=`<div class="cat-advice"><strong>Wiederholen:</strong> ${weak.join(', ')}.</div>`;}else{catHtml+='<div class="cat-advice"><strong>Alle Themenbereiche sicher.</strong></div>';}catHtml+='</div>';}const pct=Math.round(correct/qs.length*100);let grade=1;if(pct<90)grade=2;if(pct<75)grade=3;if(pct<60)grade=4;if(pct<45)grade=5;if(pct<30)grade=6;const catSummary=(_cats||[]).map(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;return {name:cat.name,correct:ok,total:tot,pct:Math.round(ok/tot*100)}});const res={name:currentName,level:levelNames[currentLevel],correct,total:qs.length,pct,grade,date:new Date().toLocaleString('de-DE'),wrong,categories:catSummary};const all=JSON.parse(localStorage.getItem('sol_results')||'[]');all.push(res);localStorage.setItem('sol_results',JSON.stringify(all));sendToSheets(res);let review='';if(wrong.length){review='<div class="review-list"><h4>Falsch beantwortete Aufgaben</h4>'+wrong.map(w=>`<div class="review-item"><p><strong>${escHtml(w.qnr||('Aufgabe '+w.nr))}:</strong> ${escHtml(w.frage)}</p><p><strong>Deine Antwort:</strong> ${escHtml(w.deine)}</p><p><strong>Richtige Antwort:</strong> ${escHtml(w.richtig)}</p></div>`).join('')+'</div>'}else{review='<div class="review-ok"><strong>Alles richtig.</strong> Es gibt keine falschen Antworten.</div>'}const resEl=document.getElementById('test-result');resEl.style.display='block';resEl.innerHTML=`<h3>Ergebnis</h3><div class="grade-badge grade-${grade}">${grade}</div><p>${correct} von ${qs.length} richtig (${pct}%).</p>${catHtml}${review}${buildCertificate(res)}${buildPrintCard(res)}<div class="print-actions"><button class="btn btn-primary" onclick="goToLevelSelect()">Zur Übersicht</button>${pct>=60?'<button class="btn btn-green" onclick="printCertificate()">Zertifikat drucken</button>':''}<button class="btn btn-green" onclick="printCurrentResult()">Druckansicht</button></div>`; setTimeout(()=>resEl.scrollIntoView({behavior:"smooth",block:"start"}),100)}
+function gradeTest(){const qs=TESTS[currentLevel];let correct=0;const wrong=[];const perQArr=[];qs.forEach((q,idx)=>{const v=document.querySelector(`input[name="t${idx}"]:checked`);const chosen=v?Number(v.value):null;const _ok=chosen===q.correct;perQArr.push(_ok);if(_ok){correct++}else{wrong.push({nr:idx+1,qnr:testQuestionNumber(currentLevel,idx),frage:q.q,deine:chosen===null?'nicht beantwortet':q.choices[chosen],richtig:q.choices[q.correct]})}});const _cats=TEST_CATEGORIES[currentLevel]||[];let catHtml='';if(_cats.length){catHtml='<div class="cat-results"><h4>Ergebnis nach Themen</h4>';_cats.forEach(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;const pct2=Math.round(ok/tot*100);const col=pct2>=80?'#16a34a':pct2>=50?'#d97706':'#dc2626';catHtml+=`<div class="cat-row"><span>${cat.name}</span>`+`<span style="color:${col};font-weight:700">${ok}/${tot} (${pct2}%)</span></div>`});const weak=_cats.filter(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;return Math.round(ok/tot*100)<80}).map(cat=>cat.name);if(weak.length){catHtml+=`<div class="cat-advice"><strong>Wiederholen:</strong> ${weak.join(', ')}.</div>`;}else{catHtml+='<div class="cat-advice"><strong>Alle Themenbereiche sicher.</strong></div>';}catHtml+='</div>';}const pct=Math.round(correct/qs.length*100);let grade=1;if(pct<90)grade=2;if(pct<75)grade=3;if(pct<60)grade=4;if(pct<45)grade=5;if(pct<30)grade=6;const catSummary=(_cats||[]).map(cat=>{const tot=cat.qs.length;const ok=cat.qs.filter(i=>perQArr[i]).length;return {name:cat.name,correct:ok,total:tot,pct:Math.round(ok/tot*100)}});const res={name:currentName,level:levelNames[currentLevel],correct,total:qs.length,pct,grade,date:new Date().toLocaleString('de-DE'),wrong,categories:catSummary};const all=JSON.parse(localStorage.getItem('sol_results')||'[]');all.push(res);localStorage.setItem('sol_results',JSON.stringify(all));sendToSheets(res);let review='';if(wrong.length){review='<div class="review-list"><h4>Falsch beantwortete Aufgaben</h4>'+wrong.map(w=>`<div class="review-item"><p><strong>${escHtml(w.qnr||('Aufgabe '+w.nr))}:</strong> ${escHtml(w.frage)}</p><p><strong>Deine Antwort:</strong> ${escHtml(w.deine)}</p><p><strong>Richtige Antwort:</strong> ${escHtml(w.richtig)}</p></div>`).join('')+'</div>'}else{review='<div class="review-ok"><strong>Alles richtig.</strong> Es gibt keine falschen Antworten.</div>'}const resEl=document.getElementById('test-result');resEl.style.display='block';resEl.innerHTML=`<h3>Ergebnis</h3><div class="grade-badge grade-${grade}">${grade}</div><p>${correct} von ${qs.length} richtig (${pct}%).</p>${catHtml}${review}${buildCertificate(res)}${buildPrintCard(res)}<div class="print-actions"><button class="btn btn-primary" onclick="goToLevelSelect()">Zur Übersicht</button>${pct>=60?'<button class="btn btn-green" onclick="printCertificate()">Zertifikat drucken</button>':''}<button class="btn btn-green" onclick="printCurrentResult()">Druckansicht</button></div>`; setTimeout(()=>resEl.scrollIntoView({behavior:"smooth",block:"start"}),100)
+  // Show local feedback block immediately (updated again after sheets response)
+  const url=getSheetsUrl();
+  if(!url){
+    const fb=document.getElementById('feedbackBlock');
+    if(fb)fb.remove();
+    const fbRes={name:currentName,level:levelNames[currentLevel],correct,total:qs.length,pct,wrong};
+    resEl.insertAdjacentHTML('afterbegin', buildFeedbackBlock(fbRes, null));
+  }
+}
 function openTeacher(){const pw=prompt('Passwort für die Lehreransicht:');if(pw!==TEACHER_PW)return;refreshTeacher();showPage('teacher-page');loadSheetsUrlField();}
 function refreshTeacher(){
   let results=[];
@@ -1765,8 +1787,8 @@ function demoMoves(piece,square){
   if(piece==='♙'){if(inB(file,rank+1))moves.push(sq(file,rank+1)); if(rank===2 && inB(file,rank+2))moves.push(sq(file,rank+2)); if(inB(file-1,rank+1))moves.push(sq(file-1,rank+1)); if(inB(file+1,rank+1))moves.push(sq(file+1,rank+1));}
   return moves;
 }
-function demoBoard(piece,square){
-  return makeBoard({[square]:piece},demoMoves(piece,square),[]);
+function demoBoard(piece, square, highlights){
+  return makeBoard({[square]: piece}, highlights || demoMoves(piece, square), []);
 }
 function renderFigureDemo(targetId,piece,square){
   const el=document.getElementById(targetId);
@@ -1832,14 +1854,107 @@ function getSheetsUrl(){return localStorage.getItem(SHEETS_KEY)||'https://script
 function saveSheetsUrlFn(url){localStorage.setItem(SHEETS_KEY,url);showToast('URL gespeichert ✓');}
 function loadSheetsUrlField(){var f=document.getElementById('sheetsUrlInput');if(f)f.value=getSheetsUrl();}
 
+function getFeedbackText(pct, wrongList){
+  let base = '';
+  if(pct >= 85) base = 'Sehr stark. Du hast die meisten Aufgaben sicher gelöst und kannst mit dem nächsten Niveau oder schwierigeren Aufgaben weitermachen.';
+  else if(pct >= 70) base = 'Gut geschafft. Du hast die wichtigsten Inhalte verstanden. Wiederhole noch gezielt die Aufgaben, die falsch waren.';
+  else if(pct >= 60) base = 'Bestanden. Die Grundlagen sind vorhanden, aber du solltest die markierten Fehlerschwerpunkte noch einmal üben.';
+  else base = 'Noch nicht bestanden. Das ist kein Problem. Bearbeite die Lernabschnitte noch einmal und versuche den Gelingnachweis später erneut.';
+  if(wrongList && wrongList.length > 0){
+    const topics = wrongList.slice(0,3).map(w => w.frage || w.q || '').filter(Boolean);
+    if(topics.length) base += ' Wiederhole besonders: ' + topics.join(', ') + '.';
+  }
+  return base;
+}
+
+function buildFeedbackBlock(res, submitResult){
+  const pct = Number(res.pct || res.percent || 0);
+  const bestanden = pct >= 60;
+  const email = getLearnerEmail ? getLearnerEmail() : '';
+  const feedbackText = getFeedbackText(pct, res.wrong || res.fehler_details || []);
+
+  let statusLines = '';
+  if(submitResult){
+    if(submitResult.ok || submitResult.saved){
+      statusLines += '<div style="color:#155724;">✓ Online übermittelt</div>';
+    } else {
+      statusLines += '<div style="color:#856404;">⚠ Online-Übermittlung nicht sicher möglich – bitte Lehrkraft informieren</div>';
+    }
+    if(submitResult.mailSent){
+      statusLines += '<div style="color:#155724;">✓ Feedback-Mail gesendet</div>';
+    } else if(email && submitResult.mailSkipped){
+      statusLines += '<div style="color:#555;">ℹ Keine Mail gesendet</div>';
+    } else if(!email){
+      statusLines += '<div style="color:#555;">ℹ Feedback wird nur hier angezeigt – keine E-Mail-Adresse angegeben</div>';
+    }
+  }
+  statusLines += '<div style="color:#155724;">✓ Lokal gespeichert</div>';
+
+  return `<div id="feedbackBlock" style="background:#f0f7ff;border:1px solid #b8d4f0;border-radius:8px;padding:16px 18px;margin:18px 0;font-family:inherit;max-width:520px;">
+  <h3 style="margin:0 0 10px;font-size:1rem;color:#1a3a5c;">Deine Rückmeldung</h3>
+  <div style="margin-bottom:8px;">
+    <strong>Ludgerusdiplom I</strong><br>
+    Name: ${res.name || ''}<br>
+    ${res.level ? 'Niveau: ' + res.level + '<br>' : ''}
+    Ergebnis: ${res.correct || res.richtig || '?'} von ${res.total || res.gesamt || '?'} richtig<br>
+    Prozent: ${pct} %<br>
+    Status: <strong style="color:${bestanden?'#155724':'#721c24'}">${bestanden ? 'bestanden ✓' : 'noch nicht bestanden'}</strong>
+  </div>
+  <div style="margin:10px 0;padding:10px;background:#fff;border-radius:5px;font-size:0.9rem;color:#333;">
+    ${feedbackText}
+  </div>
+  <div style="font-size:0.85rem;border-top:1px solid #d0e4f7;padding-top:8px;margin-top:8px;">
+    ${statusLines}
+  </div>
+</div>`;
+}
+
+// POST mit JSON-Body bevorzugen; GET als Fallback
+function submitToSheets(url, payload, statusEl){
+  if(!url) return Promise.resolve({ok:false, error:'Keine URL konfiguriert'});
+  return fetch(url, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(r => r.ok ? r.json() : Promise.reject('HTTP '+r.status))
+  .catch(() =>
+    // GET-Fallback für altes Apps Script
+    fetch(url + '?data=' + encodeURIComponent(JSON.stringify(payload)), {mode:'no-cors'})
+      .then(() => ({ok:true, saved:true, mailSent:false, mailSkipped:true, message:'Übermittelt (GET-Fallback)'}))
+  );
+}
+
 function sendToSheets(res){
   var url=getSheetsUrl();
   if(!url)return;
   var fehler=res.wrong?res.wrong.map(function(w){return (w.qnr? w.qnr+': ':'')+(w.frage||w.q||'');}).join(' | '):'';
-  var payload={name:res.name,level:res.level,richtig:res.correct,gesamt:res.total,prozent:res.pct+'%',note:res.grade,datum:res.date,fehler:fehler,fehler_details:res.wrong||[]};
-  var getUrl=url+'?data='+encodeURIComponent(JSON.stringify(payload));
-  fetch(getUrl,{mode:'no-cors'})
-    .then(function(){showToast('Ergebnis an Google Sheets übermittelt ✓',3000);})
+  var pct=res.pct;
+  var payload={
+    name:res.name,
+    level:res.level,
+    richtig:res.correct,
+    gesamt:res.total,
+    prozent:res.pct+'%',
+    note:res.grade,
+    datum:res.date,
+    fehler:fehler,
+    fehler_details:res.wrong||[],
+    email: getLearnerEmail(),
+    diplom: 'Ludgerusdiplom I',
+    bestanden: Number(pct) >= 60,
+    feedback: getFeedbackText(pct, res.wrong||[])
+  };
+  submitToSheets(url, payload)
+    .then(function(result){
+      showToast('Ergebnis an Google Sheets übermittelt ✓',3000);
+      var resEl=document.getElementById('test-result');
+      if(resEl){
+        var old=document.getElementById('feedbackBlock');
+        if(old)old.remove();
+        resEl.insertAdjacentHTML('afterbegin', buildFeedbackBlock(res, result));
+      }
+    })
     .catch(function(){showToast('Offline – Ergebnis nur lokal gespeichert.',3000);});
 }
 
