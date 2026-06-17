@@ -1850,7 +1850,7 @@ window.addEventListener('load',()=>{const n=localStorage.getItem('sol_name');if(
 function showToast(msg,ms){ms=ms||2800;var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');clearTimeout(t._tid);t._tid=setTimeout(function(){t.classList.remove('show')},ms);}
 
 var SHEETS_KEY='sol_sheets_url';
-function getSheetsUrl(){return localStorage.getItem(SHEETS_KEY)||'https://script.google.com/macros/s/AKfycbygYEw0w00tuouGPFDVN8VgP25H2HBEpeeGHNWHJb461LVKkCMblncExcRq8AV_hbKrNg/exec';}
+function getSheetsUrl(){return localStorage.getItem(SHEETS_KEY)||'https://script.google.com/macros/s/AKfycby4tbrhQurMwJqdX6rU2tWEiYHD_kThSppVFfChadD28U0Y-TRsWVixbqtjtSlMW2UY/exec';}
 function saveSheetsUrlFn(url){localStorage.setItem(SHEETS_KEY,url);showToast('URL gespeichert ✓');}
 function loadSheetsUrlField(){var f=document.getElementById('sheetsUrlInput');if(f)f.value=getSheetsUrl();}
 
